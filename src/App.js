@@ -18,6 +18,11 @@ class BooksApp extends React.Component {
 
   }
 
+  filterBooks(query){
+
+  }
+
+
 
   render() {
     return (
@@ -28,7 +33,7 @@ class BooksApp extends React.Component {
           )}/>
 
           <Route path='/search' render ={({ history })=>(
-            <SearchPage />
+            <SearchPage filterBooks = {this.filterBooks}/>
           )}/>
 
       </div>

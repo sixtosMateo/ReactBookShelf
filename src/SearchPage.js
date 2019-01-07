@@ -13,7 +13,7 @@ class SearchPage extends Component{
     this.setState({
       query: query.trim()
     })
-    
+
   }
   clearQuery = () => {
     this.setState({
