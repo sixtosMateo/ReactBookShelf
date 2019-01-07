@@ -20,12 +20,16 @@ class BooksApp extends React.Component {
   }
 
   filterBooks=(query)=>{
+    if(query.length >0){
     BooksAPI.search(query).then(
       (books)=>{
         this.setState({searchedBooks: books})
+    })}
+    else{
+      this.setState({searchedBooks: []})
+    }
 
-    })
-    console.log(this.state.searchedBooks)
+
   }
 
 
@@ -39,13 +43,17 @@ class BooksApp extends React.Component {
 
           <Route path='/search' render ={({ history })=>(
             <SearchPage
-              filterBooks = {this.filterBooks}
-              books = {this.state.searchedBooks}/>
+
+              filterBooks ={(query) =>{
+                this.filterBooks(query)
+              }}
+              searchedBooks = {this.state.searchedBooks}/>
           )}/>
 
       </div>
     )
   }
 }
+
 
 export default BooksApp
