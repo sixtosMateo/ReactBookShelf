@@ -4,6 +4,23 @@ import { Link } from 'react-router-dom';
 
 
 class SearchPage extends Component{
+  state = {
+    query:  ''
+  }
+
+//clears of any extra white space
+  updateQuery=(query)=>{
+    this.setState({
+      query: query.trim()
+    })
+    
+  }
+  clearQuery = () => {
+    this.setState({
+      query: ''
+    })
+  }
+
   handleSubmit = (e) =>{
 
   }
@@ -29,6 +46,7 @@ class SearchPage extends Component{
 
             </div>
           </div>
+
           <div className="search-books-results">
             <ol className="books-grid"></ol>
           </div>
