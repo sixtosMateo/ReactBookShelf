@@ -8,7 +8,7 @@ class Bookshelf extends Component{
     return(
       <div className="list-books">
         <div className="list-books-title">
-          <h1>My BookShelf</h1>  
+          <h1>My BookShelf</h1>
         </div>
 
         <div className="list-books-content">
@@ -26,7 +26,7 @@ class Bookshelf extends Component{
                             <div className="book-top">
                               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                               <div className="book-shelf-changer">
-                                <select>
+                                <select onChange={() => this.props.updateShelf(book.id,book.shelf)}>
                                   <option value="move" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
@@ -60,7 +60,7 @@ class Bookshelf extends Component{
                             <div className="book-top">
                               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                               <div className="book-shelf-changer">
-                                <select>
+                                <select onChange={() => this.props.updateShelf(book.id,book.shelf)}>
                                   <option value="move" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
@@ -93,7 +93,7 @@ class Bookshelf extends Component{
                             <div className="book-top">
                               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                               <div className="book-shelf-changer">
-                                <select>
+                                <select onChange={() => this.props.updateShelf(book.id,book.shelf)}>
                                   <option value="move" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>

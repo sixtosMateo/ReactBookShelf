@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import './App.css'
 
 class BooksApp extends React.Component {
+
   state = {
     books: [],
     searchedBooks:[]
@@ -16,20 +17,25 @@ class BooksApp extends React.Component {
       // can delete since names are the same
       this.setState({books: books})
     })
-
   }
 
   filterBooks=(query)=>{
     if(query.length >0){
-    BooksAPI.search(query).then(
-      (books)=>{
-        this.setState({searchedBooks: books})
-    })}
+      BooksAPI.search(query).then(
+        (books)=>{
+          this.setState({searchedBooks: books})
+      })
+      console.log(this.state.searchedBooks)
+    }
     else{
       this.setState({searchedBooks: []})
     }
 
+  }
 
+  updateShelf(id, shelf){
+    // BooksAPI.update(id, shelf)
+    console.log(id, shelf)
   }
 
 
@@ -38,18 +44,18 @@ class BooksApp extends React.Component {
       <div className="app">
           <Route exact path='/' render={()=>(
             <Bookshelf
-              books={this.state.books}/>
-          )}/>
+              books={this.state.books}
+              updateShelf={this.updateShelf}/>
+            )}
+          />
 
           <Route path='/search' render ={({ history })=>(
             <SearchPage
-
               filterBooks ={(query) =>{
                 this.filterBooks(query)
               }}
               searchedBooks = {this.state.searchedBooks}/>
           )}/>
-
       </div>
     )
   }
