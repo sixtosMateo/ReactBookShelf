@@ -7,14 +7,12 @@ class SearchPage extends Component{
   handleSubmit = (e) =>{
 
   }
-
-
   render(){
     return(
         <div className="search-books">
           <div className="search-books-bar">
 
-            <Link to="/" className="close-search-page">Back</Link>
+            <Link to="/" className="close-search-page">   <button className="close-search"> Back </button></Link>
 
             <div className="search-books-input-wrapper">
               {/*
@@ -27,7 +25,6 @@ class SearchPage extends Component{
               */}
               <input type="text"
                      placeholder="Search by title or author"
-
                      onChange={(event) => this.updateQuery(event.target.value)}/>
 
             </div>
