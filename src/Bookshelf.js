@@ -8,8 +8,7 @@ class Bookshelf extends Component{
     return(
       <div className="list-books">
         <div className="list-books-title">
-          <h1>MyReads</h1>
-          {console.log(this.props.books)}
+          <h1>My BookShelf</h1>  
         </div>
 
         <div className="list-books-content">
