@@ -8,8 +8,8 @@ import './App.css'
 class BooksApp extends React.Component {
 
   state = {
-    books: [],
-    searchedBooks:[]
+    books: []
+
   }
 
   componentDidMount(){
@@ -19,23 +19,16 @@ class BooksApp extends React.Component {
     })
   }
 
-  filterBooks=(query)=>{
-    if(query.length >0){
-      BooksAPI.search(query).then(
-        (books)=>{
-          this.setState({searchedBooks: books})
-      })
-      console.log(this.state.searchedBooks)
-    }
-    else{
-      this.setState({searchedBooks: []})
-    }
 
-  }
+  updateShelf = (id, shelf)=>{
 
-  updateShelf(id, shelf){
-    // BooksAPI.update(id, shelf)
-    console.log(id, shelf)
+    BooksAPI.update(id, shelf).then(()=>{
+      BooksAPI.getAll().then(books => {
+        this.setState({ books: books });
+      });
+
+    })
+
   }
 
 
@@ -51,10 +44,7 @@ class BooksApp extends React.Component {
 
           <Route path='/search' render ={({ history })=>(
             <SearchPage
-              filterBooks ={(query) =>{
-                this.filterBooks(query)
-              }}
-              searchedBooks = {this.state.searchedBooks}/>
+            />
           )}/>
       </div>
     )

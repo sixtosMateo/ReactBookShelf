@@ -9,6 +9,7 @@ class SearchPage extends Component{
   }
 
   updateQuery=(query)=>{
+
     this.setState({
       query: query
     })
@@ -35,7 +36,7 @@ class SearchPage extends Component{
               <input type="text"
                      placeholder="Search by title or author"
                      value={query}
-                     onChange={ (event) =>
+                     onChange={(event) =>
                        this.updateQuery(event.target.value)
                      }/>
             </div>
@@ -45,9 +46,10 @@ class SearchPage extends Component{
             <ol className="books-grid">
             {
               searchedBooks.length > 0 &&(
-                searchedBooks.map((book)=> (
+                searchedBooks.map((book)  => (
 
                   <li key={book.id}>
+                  { console.log(book.imageLinks.smallThumbnail)}
                           <div className="book">
                             <div className="book-top">
                               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
