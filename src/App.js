@@ -9,7 +9,6 @@ class BooksApp extends React.Component {
 
   state = {
     books: []
-
   }
 
   componentDidMount(){
@@ -19,19 +18,15 @@ class BooksApp extends React.Component {
     })
   }
 
-
   updateShelf = (id, shelf )=> {
 
     BooksAPI.update(id, shelf).then(()=>{
-
       BooksAPI.getAll().then(books => {
         this.setState({ books: books });
       });
 
     })
-
   }
-
 
   render() {
     return (
@@ -44,7 +39,7 @@ class BooksApp extends React.Component {
           />
 
           <Route path='/search' render ={({ history })=>(
-            <SearchPage
+            <SearchPage updateShelf={this.updateShelf}
             />
           )}/>
       </div>

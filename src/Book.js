@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 class Book extends Component{
 
-
   render(){
     return(
       <div className="book">

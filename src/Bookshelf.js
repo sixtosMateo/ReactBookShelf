@@ -35,9 +35,6 @@ class Bookshelf extends Component{
               updateShelf={this.props.updateShelf}
           />
 
-
-
-
         </div>
 
       </div>
