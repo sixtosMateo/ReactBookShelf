@@ -23,9 +23,9 @@ class Bookshelf extends Component{
           <BookList
               shelfCategory="Want To Read"
               books={this.props.books.filter(
-                book => book.props.shelf === "wantToRead"
+                book => book.shelf === "wantToRead"
               )}
-              updateShelf={this.updateShelf}
+              updateShelf={this.props.updateShelf}
           />
           <BookList
               shelfCategory="Read"

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-
+import Book from './Book';
 
 class BookList extends Component{
 
@@ -17,7 +17,7 @@ class BookList extends Component{
                    <Book
                      book={book}
                      updateShelf={shelf => {
-                       this.props.moveTo(book, shelf);
+                       this.props.updateShelf(book, shelf)
                      }}
                    />
                  </li>
